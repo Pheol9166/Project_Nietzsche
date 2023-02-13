@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+body{
+    background: linear-gradient(45deg, #57003f 0%,#f57453 100%);
+    font-family: 'Ubuntu';
+}
+.wrapper{
+	width: 800px;
+	height: 100vh;
+	margin: 0 auto;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cmd{
+	position: relative;
+	display: block;
+	
+	height: 70%;
+	width: 101%;
+	border: 1px solid #000000;
+	border-radius: 4px;
+	
+	box-shadow: 0px 8px 18px #4b1d3f;
+}
+
+.title-bar{
+	position: relative;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 40px;
+	display: block;
+	color: white;
+	line-height: 40px;
+	font-weight: 600;
+	background-color: #242424;
+	text-align: center;
+}
+
+.tool-bar{
+	position: relative;
+	left: 0;
+	right: 0;
+	display: block;
+	width: 100%;
+	height: 35px;
+	line-height: 30px;
+	background-color: #242424;
+}
+
+.tool-bar ul{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.tool-bar ul li{
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.tool-bar ul li a{
+	padding: 0px 6px;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.tool-bar ul li a:hover{
+	text-decoration: underline;
+}
+
+.prompt{
+	position: relative;
+	/* padding: 12px; */
+	width: calc(100% - 5px);
+	height: calc(100% - 70px);
+	background-color: #4b1d3f;
+	color: #FFFFFF;
+	font-family: 'Ubuntu mono';
+    font-size: 1.1rem;
+    padding-top: 10px;
+    padding-left: 5px;
+    border-bottom: 1px solid #000000;
+}
+.prompt-form{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #4b1d3f;
+}
+.base-text-main {
+    position: relative;
+    z-index: 2;
+	color: #26A269;
+    padding: 5px;
+}
+.base-text-sub {
+    position: relative;
+    z-index: 2;
+    color:gray;
+}
+.result-text {
+    color:#2C9FB3;
+}
+.btn-link {
+    position: relative;
+    color: white;
+    border-radius: 17px;
+    font-size: 1.1rem;
+    font-weight: 570;
+    font-family: 'Ubuntu';
+    z-index: 1;
+    border: none;
+}
+.btn-link:before, .btn-link:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.btn-link:before {
+    background-color: #242424;
+    border-radius: 9px;
+    z-index: -1;
+}
+.btn-link:after {
+    background-color: white;
+    border-radius: 17px;
+    z-index: -2;
+}
+.btn-link:hover:after {
+    animation: glitchy 0.4s ease infinite reverse;
+}
+
+@keyframes glitchy {
+    0%   {transform: translate(-2px, 2px);}
+    25%  {transform: translate(-2px, -2px);}
+    50%  {transform: translate(2px, 2px);}
+    75%  {transform: translate(2px, -2px);}
+    100%  {transform: translate(-2px, 2px);}
+}
+.glitch {
+    width: 70%;
+    min-height: 30px;
+    left: calc(100% - 65px);
+	position:relative;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.glitch-button {
+    bottom: 27px;
+    font-family: 'Ubuntu';
+	font-size: 15px;
+	font-weight: 570;
+    color: white;
+    background: #242424;
+    padding: 15px 25px;
+    border-radius: 1.2rem;
+    position: relative;
+	border-color:lightgray;
+}
+
+.glitch-button:hover {
+    animation: skew .4s;
+}
+.glitch-button::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #fa01fd;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 1.3rem;
+    color: #efefef;
+}
+.glitch-button::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #00f7f6;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    border-radius: 1.3rem;
+}
+.glitch-button:hover::after {
+    animation: pink .4s 2;
+}
+.glitch-button:hover::before {
+    animation: blue .4s 2;
+}
+
+@keyframes blue {
+    0% { transform: translate(0) }
+    20% { transform: translate(-.6rem, .6rem) }
+    40% { transform: translate(-.6rem, -.6rem) }
+    60% { transform: translate(.6rem, -.6rem) }
+    80% { transform: translate(.6rem, -.6rem) }
+    to { transform: translate(0) }
+}
+
+@keyframes pink {
+    0% { transform: translate(0) }
+    20% { transform: translate(.6rem, .6rem)}
+    40% { transform: translate(.6rem, .6rem) }
+    60% { transform: translate(-.6rem, -.6rem) }
+    80% { transform: translate(-.6rem, .6rem) }
+    to { transform: translate(0) }
+}
+
+@keyframes skew {
+    0% { transform: skew(0);}
+    20% { transform: skew(-50deg); }
+    40% { transform: skew(10deg); }
+    60% { transform: skew(-20deg); }
+    80% { transform: skew(25deg); }
+    to { transform: skew(0); }
+}
