@@ -1,0 +1,3 @@
+Flask==2.2.2
+flask-ngrok==0.0.25
+happytransformer==2.4.1
