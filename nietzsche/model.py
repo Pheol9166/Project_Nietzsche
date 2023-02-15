@@ -1,8 +1,9 @@
 from happytransformer import HappyGeneration, GENSettings
-
+import time
 
 def load_model() -> HappyGeneration:
-    model = HappyGeneration(model_type= "GPT-NEO", model_name= "Pheol/nietzsche",load_path="../DB/model/nietzsche-neo" )
+    #TODO: load_path가 안 되는 원인 조사하기
+    model = HappyGeneration(model_type= "GPT-NEO", model_name="Pheol/nietzsche")
     return model
 
 def generate(prompt: str) -> str:
