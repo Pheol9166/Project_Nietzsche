@@ -8,7 +8,7 @@ app = Flask(__name__,
             static_folder='static',
             template_folder='templates')
 
-conf.get_default().auth_token = "AUTH_TOKEN"
+conf.get_default().auth_token = "2LfhjE38pa52YuiwxWAjVBZIqfn_6RD4m2TpDU1Hi7W1NnUVy"
 http_tunnel = ngrok.connect(5000)
 tunnels = ngrok.get_tunnels()
 
@@ -27,7 +27,7 @@ def preprocess(prompt: str) -> str:
 @app.route("/")
 def index():
     https_url = tunnels[0].public_url # ngrok으로 생성된 https 주소를 넘겨줍니다.
-    return render_template("index.html")
+    return render_template("index.html", https_url=https_url)
 
 @app.route("/", methods=['POST'])
 def result():
