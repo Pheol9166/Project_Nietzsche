@@ -27,12 +27,13 @@ def preprocess(prompt: str) -> str:
 @app.route("/")
 def index():
     https_url = tunnels[0].public_url # ngrok으로 생성된 https 주소를 넘겨줍니다.
-    return render_template("index.html", https_url = https_url)
+    return render_template("index.html")
 
 @app.route("/", methods=['POST'])
 def result():
     if request.method == 'POST':
+        set_lst: tuple[int, float] = (int(request.form.get('maxLength')), float(request.form.get('topP')))
         content: str = preprocess(request.form.get('prompt'))
-        result: str = model.generate(content)
+        result: str = model.generate(content, set_lst)
         return render_template("index.html", content= content, result= result)
     

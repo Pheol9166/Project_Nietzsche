@@ -16,6 +16,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
         integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script>
+        function SubmitForm(x) {
+            document.getElementById("hidden-prompt").value =
+                document.getElementById("content-prompt").innerHTML;
+            return true;
+        }
         function cleartext() {
             document.getElementById("content-prompt").innerHTML = "";
         }
@@ -25,12 +30,48 @@
 <body>
     <div class="wrapper">
         <div class="cmd">
-            <form class="prompt-form" action="{{https_url}}" onsubmit="return SubmitForm(this)" method="post">
+            <form class="prompt-form" action="http://localhost:5000" onsubmit="return SubmitForm(this)" method="post">
                 <div class="title-bar">nietzsche@ubuntu: ~</div>
                 <div class="tool-bar">
                     <ul>
-                        <li><a href="#">File</a></li>
-                        <li><a href="#">Edit</a></li>
+                        <li>
+                            <button class="btn-link" type="button">File</button>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn-link" type="button">Edit</button>
+                                <div class="dropdown-content">
+                                    <div>
+                                        <input name="maxLength" id="maxlengthSlider" class="slider" type="range"
+                                            min="20" max="100" value="50">
+                                        <div style="color: white;">Max length: <span id="maxlength"></span></div>
+                                        <script>
+                                            var lenSlider = document.getElementById("maxlengthSlider");
+                                            var output = document.getElementById("maxlength");
+                                            output.innerHTML = lenSlider.value;
+
+                                            lenSlider.oninput = function () {
+                                                output.innerHTML = this.value;
+                                            }
+                                        </script>
+                                    </div>
+                                    <div>
+                                        <input name="topP" id="topPSlider" class="slider" type="range" min="0" max="1"
+                                            value="1" step="0.01">
+                                        <div style="color: white;">top-p: <span id="topPSet"></span></div>
+                                        <script>
+                                            var pSlider = document.getElementById("topPSlider");
+                                            var result = document.getElementById("topPSet");
+                                            result.innerHTML = pSlider.value;
+
+                                            pSlider.oninput = function () {
+                                                result.innerHTML = this.value;
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         <li><a href="#">View</a></li>
                         <li>
                             <button class="btn-link" type="button" onclick="cleartext()">Clear</button>
@@ -41,20 +82,17 @@
                     </ul>
                 </div>
                 <input name="prompt" type="hidden" id="hidden-prompt" value="">
-                <span class="base-text-main">nietzsche@ubuntu</span><span class="base-text-sub">: ~$ Type some text
-                    here...</span>
-                <div contenteditable=true id="content-prompt" class="prompt" style="outline:none;">
-                    {{content}}<span class="result-text"></span>
+                <span class="base-text-main">nietzsche@ubuntu: </span><span class="base-text-sub">~$ Type some text and
+                    Nietzsche will answer...</span>
+                <div contenteditable=true id="content-prompt" class="prompt" style="outline:none;">{{content}}<span
+                        class="result-text"></span>
                 </div>
+                <script>
+                    window.onload = function () {
+                        document.getElementById("content-prompt").focus();
+                    };
+                </script>
             </form>
-
-            <script>
-                function SubmitForm(x) {
-                    document.getElementById("hidden-prompt").value =
-                        document.getElementById("content-prompt").innerHTML;
-                    return true;
-                }
-            </script>
         </div>
     </div>
 </body>
