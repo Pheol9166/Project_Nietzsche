@@ -33,4 +33,4 @@
 
 ## Plans
 - add other philosophers like Immanuel Kant
-- make setting UI to adjust generate options
+- ~~make setting UI to adjust generate options~~
