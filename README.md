@@ -25,6 +25,8 @@
 - **Result**
 <img src="https://user-images.githubusercontent.com/112241898/221873770-da804634-de34-4ad1-8b0b-0595af91f21f.png" width="700" height="400"/>
 
+- **You can clear your Prompt with Clear button**
+
 ## Limitation
 - Data preprocessing issues
 - A limit of ngrok if you use free pricing
