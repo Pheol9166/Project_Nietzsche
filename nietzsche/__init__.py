@@ -8,7 +8,7 @@ app = Flask(__name__,
             static_folder='static',
             template_folder='templates')
 
-conf.get_default().auth_token = "2LfhjE38pa52YuiwxWAjVBZIqfn_6RD4m2TpDU1Hi7W1NnUVy"
+conf.get_default().auth_token = "AUTH_TOKEN"
 http_tunnel = ngrok.connect(5000)
 tunnels = ngrok.get_tunnels()
 
@@ -32,7 +32,7 @@ def index():
 @app.route("/", methods=['POST'])
 def result():
     if request.method == 'POST':
-        set_lst: tuple[int, float] = (int(request.form.get('maxLength')), float(request.form.get('topP')))
+        set_lst: tuple[int, int, float] = (int(request.form.get('maxLength')), int(request.form.get('topK')), float(request.form.get('topP')))
         content: str = preprocess(request.form.get('prompt'))
         result: str = model.generate(content, set_lst)
         return render_template("index.html", content= content, result= result)

@@ -6,9 +6,9 @@ def load_model() -> HappyGeneration:
     model = HappyGeneration(model_type= "GPT-NEO", model_name="Pheol/nietzsche")
     return model
 
-def generate(prompt: str, set_vals: tuple[int, float]) -> str:
+def generate(prompt: str, set_vals: tuple[int, int, float]) -> str:
     model: HappyGeneration = load_model()
-    length, top_P = set_vals
-    settings = GENSettings(min_length= 20, max_length= length, do_sample=True, top_p= top_P)
+    length, top_K, top_P = set_vals
+    settings = GENSettings(min_length= 20, max_length= length, do_sample=True, top_k= top_K, top_p= top_P)
     result: str = model.generate_text(prompt, args = settings).text
     return result

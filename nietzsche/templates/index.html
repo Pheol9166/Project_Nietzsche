@@ -43,15 +43,14 @@
                                 <div class="dropdown-content">
                                     <div>
                                         <input name="maxLength" id="maxlengthSlider" class="slider" type="range"
-                                            min="20" max="100" value="50">
+                                            min="20" max="100" value="50" step="5">
                                         <div style="color: white;">Max length: <span id="maxlength"></span></div>
                                         <script>
                                             var lenSlider = document.getElementById("maxlengthSlider");
-                                            var output = document.getElementById("maxlength");
-                                            output.innerHTML = lenSlider.value;
+                                            $("#maxlength").html(lenSlider.value);
 
                                             lenSlider.oninput = function () {
-                                                output.innerHTML = this.value;
+                                                $("#maxlength").html(this.value);
                                             }
                                         </script>
                                     </div>
@@ -61,11 +60,23 @@
                                         <div style="color: white;">top-p: <span id="topPSet"></span></div>
                                         <script>
                                             var pSlider = document.getElementById("topPSlider");
-                                            var result = document.getElementById("topPSet");
-                                            result.innerHTML = pSlider.value;
+                                            $("#topPSet").html(pSlider.value);
 
                                             pSlider.oninput = function () {
-                                                result.innerHTML = this.value;
+                                                $("#topPSet").html(this.value);
+                                            }
+                                        </script>
+                                    </div>
+                                    <div>
+                                        <input name="topK" id="topKSlider" class="slider" type="range" min="0" max="50"
+                                            value="50">
+                                        <div style="color: white;">top-k: <span id="topKSet"></span></div>
+                                        <script>
+                                            var kSlider = document.getElementById("topKSlider");
+                                            $("#topKSet").html(kSlider.value);
+
+                                            kSlider.oninput = function () {
+                                                $("#topKSet").html(this.value);
                                             }
                                         </script>
                                     </div>
