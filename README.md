@@ -7,7 +7,8 @@
   - https://github.com/Pheol9166/Project_Nietzsche
   - https://huggingface.co/Pheol/nietzsche
 ## Update (2.28)
-- You can use Edit setting! 
+- You can use Edit setting!
+- You can adjust max length of generation, top-k, and top-p
 <img src="https://user-images.githubusercontent.com/112241898/221868561-08b49a99-3d0a-448e-b147-a11486c17c1f.png" width="700" height="400"/>
 
 ## Description
