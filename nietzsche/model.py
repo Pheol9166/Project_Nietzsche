@@ -1,8 +1,8 @@
 from happytransformer import HappyGeneration, GENSettings
-import time
 
+
+# git LFS의 용량 제한으로 인해 모델을 로컬에서 불러오지 않는 방식으로 만들었습니다.
 def load_model() -> HappyGeneration:
-    #TODO: load_path가 안 되는 원인 조사하기
     model = HappyGeneration(model_type= "GPT-NEO", model_name="Pheol/nietzsche")
     return model
 
